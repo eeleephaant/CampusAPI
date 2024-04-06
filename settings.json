@@ -1,0 +1,7 @@
+{
+  "paths": {
+    "main_db": "./db/main.db",
+    "logs_dir": "./logs",
+    "images_dir": "./images"
+  }
+}
