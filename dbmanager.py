@@ -45,3 +45,17 @@ def is_new_ip_for_user(ip_address: str, user_id: int) -> bool:
         cursor.execute("SELECT * FROM user_api_keys WHERE ip_address = ? AND user_id = ?", (ip_address, user_id))
         result = cursor.fetchone()
         return result is None
+
+
+def generate_dummy_indicators():
+    with sqlite3.connect(settings.get_main_db_path()) as conn:
+        cursor = conn.cursor()
+        for i in range(50):
+            ind_type = 1
+            if i % 2 == 0:
+                ind_type = 0
+            cursor.execute(
+                "INSERT INTO indicators (id, type, name) VALUES (?, ?, ?)",
+                (i, ind_type, f"Индикатор {i}",)
+            )
+        conn.commit()

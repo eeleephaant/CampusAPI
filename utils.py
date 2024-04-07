@@ -1,3 +1,4 @@
+import base64
 import hashlib
 import os
 import re
@@ -17,6 +18,11 @@ class CryptUtils:
     @classmethod
     def get_hash_512(cls, text: str):
         return hashlib.sha512(text.encode('utf-8')).hexdigest()
+
+    @classmethod
+    def image_to_base64(cls, relative_image_path: str):
+        with open(relative_image_path, 'rb') as image:
+            return f"data:image/jpeg;base64,{base64.b64encode(image.read()).decode('utf-8')}"
 
 
 def generate_api_key():
