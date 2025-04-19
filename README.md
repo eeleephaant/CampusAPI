@@ -1,3 +1,3 @@
-# 2024 HACKATON CASE SOLUTION (backend)
+# 2024 HACKATHON CASE SOLUTION (backend)
 ## 1st place
 ## Grand Prix
